@@ -68,6 +68,3 @@ has_one :payment
 ### Association
 belongs_to :order
 
-
-間違えて、masterにマージしてしまったため、新たにブランチを立ち上げ直して、
-同じhistoryの状態にしました。
