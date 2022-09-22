@@ -1,11 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+  # before_action :set_item , only: [:show, :edit, :update, :destroy]
 
 
-  def index
-    @items = Item.includes(:user).order('created_at DESC')
-  end
+  #def index
+    #@items = Item.includes(:user).order('created_at DESC')
+  #end
 
   
 
@@ -22,13 +22,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
+  #def edit
     # ログインしているユーザーと同一であればeditファイルが読み込まれる
-    if @item.user_id == current_user.id && @item.order.nil?
-    else
-      redirect_to root_path
-    end
-  end
+    #if @item.user_id == current_user.id && @item.order.nil?
+    #else
+    #  redirect_to root_path
+    #end
+  #end
 
   private
 
@@ -36,8 +36,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :description, :category_id, :item_status_id, :shipping_cost_id, :prefecture_id, :shipping_date_id, :price).merge(user_id: current_user.id)
   end
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  #def set_item
+    #@item = Item.find(params[:id])
+  #end
 
 end
