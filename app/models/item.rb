@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
+  has_one    :order
  
 
  
@@ -15,6 +16,7 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   with_options presence: true do
+    validates :user_id
     validates :image
     validates :name
     validates :description
