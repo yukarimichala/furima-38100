@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe OrderForm, type: :model do
   before do
     @order_form = FactoryBot.build(:order_form)
+
+    @user = FactoryBot.create(:user)
+    @item = FactoryBot.create(:item)
+    sleep 0.1
   end
 
   describe '配送先情報の保存' do
